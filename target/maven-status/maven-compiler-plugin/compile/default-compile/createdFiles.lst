@@ -1,0 +1,7 @@
+com/sistema_chat/resources/model/utils/DBConnection.class
+com/sistema_chat/resources/dao/UserDAO.class
+com/sistema_chat/resources/model/Message.class
+com/sistema_chat/SistemaChat.class
+com/sistema_chat/resources/model/User.class
+com/sistema_chat/resources/model/websockets/EchoServer.class
+com/sistema_chat/resources/dao/MessageDAO.class

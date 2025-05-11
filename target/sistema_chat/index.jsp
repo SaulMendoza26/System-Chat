@@ -17,12 +17,12 @@
             <div class="container-form-login container-flex-column">
                 <form class="form-login container-flex-column" action="/home" >
                     <label class="label-name labels" for="user">Ingrese su usuario o email:</label>
-                    <input class="input-name inputs" type="text" id="user" name="userName" placeholder="example@gmail.com">
+                    <input class="input-name inputs" type="text" id="user" name="name-user" placeholder="example@gmail.com">
                     <label class="label-password labels" for="password">Ingrese su contraseña:</label>
-                    <input class="input-password inputs" id="password" type="password" name="userPassword" placeholder="**************">
+                    <input class="input-password inputs" id="password" type="password" name="name-password" placeholder="**************">
                     <input class="input-buttom-login inputs-buttom" type="submit" value="Ingresar">
                     <div class="error-login bg-error"> 
-                         <p class="label-error">${ErrorLogin}</p></div>
+                         <p class="label-error">Su usuario o contraseña es incorrecto</p></div>
                   
                 </form>
                 <a class="direction-logout" href="/logout">Registrarse</a>
