@@ -1,35 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Home</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Welcome to the Chat System</h1>
-    </header>
-    <main>
-        <section>
-            <h2>Available Chat Rooms</h2>
-            <ul>
-                <li><a href="chatroom.jsp?room=general">General Chat</a></li>
-                <li><a href="chatroom.jsp?room=tech">Tech Chat</a></li>
-                <li><a href="chatroom.jsp?room=sports">Sports Chat</a></li>
-            </ul>
-        </section>
-        <section>
-            <h2>Create a New Room</h2>
-            <form action="createRoom" method="post">
-                <label for="roomName">Room Name:</label>
-                <input type="text" id="roomName" name="roomName" required>
-                <button type="submit">Create</button>
-            </form>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 Chat System</p>
-    </footer>
-</body>
-</html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <%@ page isELIgnored="false" %>
+
+                <!DOCTYPE html>
+                <html lang="es">
+
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <link rel="stylesheet" href="../css/login/style.css">
+                    <link rel="stylesheet" href="../css/home/home.css">
+                    <title>ChatSistema</title>
+                </head>
+
+                <body>
+                    <header class="container-header">
+                    </header>
+                    <div class="container-nav">
+                        <nav class="box container-nav">
+                            <div class="box-left">
+                                <img class="icon-image-user" src="./images/icons/homes/muestra.jpg" alt="prueba">
+                                <p class="labels">
+                                    ${user.getUserName()}
+                                </p>
+                            </div>
+                            <div class="box-right">
+                                <input class="input-search inputs" type="text" placeholder="Buscar 🔍">
+                                <img class="icon-image-lupa" src="" alt="lupa">
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="box-container-chat">
+                        <section class="chat-left">
+                            <div class="box-chat">
+                                <ul>
+
+                                </ul>
+                            </div>
+                            <div class="message-send">
+                                <input class="inputs input-send-message" type="text">
+                                <input class="input-buttom-login" type="submit">
+                            </div>
+                        </section>
+                        <section class="chat-right">
+
+                        </section>
+                    </div>
+
+                </body>
+
+                </html>

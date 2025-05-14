@@ -36,4 +36,9 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return "Mi nombres es:" + userName + "mi contraseña es:" + password;
+    }
 }

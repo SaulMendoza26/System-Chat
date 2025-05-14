@@ -1,0 +1,76 @@
+:root {
+    --primary-color: #4CAF50;
+    /* Green */
+    --secondary-color: #FF9800;
+    /* Orange */
+    --background-color: #F5F5F5;
+    /* Light Gray */
+    --text-color: #333333;
+    /* Dark Gray */
+    --border-color: #E0E0E0;
+    /* Light Border */
+
+    --margin-small: 8px;
+    --margin-medium: 16px;
+    --margin-large: 24px;
+    --margin-xlarge: 32px;
+}
+.container-nav{
+    display: grid;
+   
+}
+.container-nav{
+    display: flex;
+    justify-content: space-between;
+   
+    width: 100%;
+}
+.box-left{
+    
+    display: flex;
+    
+}
+.box-right{
+    display: flex;
+}
+.icon-image-user{
+    margin: 4px;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.input-search{
+    margin: 10px;
+    width: 200px;
+    height: 20px;
+}
+.box-container-chat{
+    
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.box-chat{
+    top: 5%;
+    left: 25%;
+    /* background: red; */
+    position: absolute;
+    width: 50%;
+    height: 60%;
+    border: 1px solid  var(--border-color);
+    background: var(--background-color);
+}
+.input-send-message {
+    width: 70%;
+    margin: 8px ;
+}
+.message-send{
+    position: absolute;
+    top:70%;
+    left: 25%;
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+}

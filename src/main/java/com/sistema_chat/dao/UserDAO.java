@@ -15,19 +15,22 @@ public class UserDAO {
         this.connection = connection;
     }
 
-    public User validateUser(String username, String password) throws SQLException {
-        String sql = "Select name, password from users where name=? and password=?";
-        User user = new User();
-        try (PreparedStatement preparedStatement = connection.prepareCall(sql);) {
-            preparedStatement.setString(0, username);
-            preparedStatement.setString(1, password);
+    public User validateUser(String username) {
+        String sql = "SELECT * FROM users WHERE username = ?";
+        User user = null;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, username);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                while (resultSet.next()) {
-                    user.setUserName(resultSet.getString("username"));
+                if (resultSet.next()) {
+                    user = new User();
+                    user.setUserName(resultSet.getString("username"));       // Usa el nombre correcto de columna
                     user.setPassword(resultSet.getString("password"));
                 }
             }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Recomendable no dejar el catch vacío
         }
+
         return user;
     }
 
