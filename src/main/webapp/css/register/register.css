@@ -1,0 +1,93 @@
+:root {
+    --primary-color: #4CAF50;
+    /* Green */
+    --secondary-color: #FF9800;
+    /* Orange */
+    --background-color: #F5F5F5;
+    /* Light Gray */
+    --text-color: #333333;
+    /* Dark Gray */
+    --border-color: #E0E0E0;
+    /* Light Border */
+
+    --margin-small: 8px;
+    --margin-medium: 16px;
+    --margin-large: 24px;
+    --margin-xlarge: 32px;
+}
+
+.container-form-register {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    justify-self: center;
+    position: absolute;
+    padding: 12px;
+
+}
+
+.title {
+    font-weight: bold;
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.container {
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.container-names {
+
+    gap: 24px;
+}
+
+.input-register {
+    margin: 4px;
+}
+
+.container-birthdates {
+    justify-content: space-evenly;
+    gap: 24px;
+    padding: 12px;
+}
+
+.selects {
+    font-weight: bold;
+}
+
+.box {
+    margin: 4px 4px 4px 4px;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background-color: #fff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.container-genre {
+
+    justify-content: start;
+    gap: 62px;
+
+}
+.option-genre {
+    cursor: pointer;
+}
+
+.containerL {
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.input-alone {
+    width: 100%;
+
+}
+.input-form-register{
+     text-align: center;
+}

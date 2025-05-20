@@ -1,8 +1,10 @@
+com/sistema_chat/controller/LoginServlet.class
+com/sistema_chat/controller/RegisterServlet.class
 com/sistema_chat/model/utils/DBConnection.class
 com/sistema_chat/model/User.class
 com/sistema_chat/dao/MessageDAO.class
 com/sistema_chat/dao/UserDAO.class
-com/sistema_chat/controller/LoginController.class
+com/sistema_chat/controller/HomeServlet.class
 com/sistema_chat/service/UserService.class
 com/sistema_chat/model/websockets/EchoServer.class
 com/sistema_chat/model/Message.class

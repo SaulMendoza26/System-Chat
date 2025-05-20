@@ -1,32 +1,23 @@
 package com.sistema_chat.model;
 
-public class User {
+import java.time.LocalDate;
 
-    private Integer id;
-    private String userName;
-    private String password; 
-    public User(){
-        
-    }
-    public User(Integer id,String userName,String password){
-        this.id=id;
-        this.userName=userName;
+public class User extends Person {
+    private String email;
+    private String password;
+    public User(String name, String lastName, String genre, LocalDate birthdate, String email,String password) {
+        super(name, lastName, genre, birthdate);
+        this.email=email;
         this.password=password;
     }
-    public Integer getId() {
-        return id;
+    public User(){}
+
+    public String getEmail() {
+        return email;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -36,9 +27,8 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    @Override
-    public String toString() {
-        // TODO Auto-generated method stub
-        return "Mi nombres es:" + userName + "mi contraseña es:" + password;
-    }
+
+  
+    
+
 }

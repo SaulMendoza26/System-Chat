@@ -7,14 +7,20 @@ import java.sql.SQLException;
 
 import com.sistema_chat.model.User;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+
 public class UserDAO {
-
+   
     private final Connection connection;
-
+    private EntityManager entityManager;
+    private EntityManagerFactory entityManagerFactory;
     public UserDAO(Connection connection) {
         this.connection = connection;
     }
-
+    public User findByUserLogin(){
+        return new User();
+    }
     public User validateUser(String username) {
         String sql = "SELECT * FROM users WHERE username = ?";
         User user = null;
@@ -23,7 +29,7 @@ public class UserDAO {
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
                     user = new User();
-                    user.setUserName(resultSet.getString("username"));       // Usa el nombre correcto de columna
+                    user.setName(resultSet.getString("username"));       // Usa el nombre correcto de columna
                     user.setPassword(resultSet.getString("password"));
                 }
             }

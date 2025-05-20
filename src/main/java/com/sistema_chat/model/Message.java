@@ -2,6 +2,8 @@ package com.sistema_chat.model;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Entity;
+@Entity
 public class Message {
     private Integer id;
     private User user;
