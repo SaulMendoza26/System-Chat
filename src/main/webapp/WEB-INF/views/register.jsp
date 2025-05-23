@@ -18,9 +18,9 @@
                     <form action="register" method="post">
                         <h1 class="labels label-title title">Registrarse</h1>
                         <div class="container-names container">
-                            <input class="inputs input-register " type="text" name="userName"
+                            <input class="inputs input-register " type="text" name="name"
                                 placeholder="Ingrese su nombres">
-                            <input class="inputs input-register" type="text" name="userLastName"
+                            <input class="inputs input-register" type="text" name="lastName"
                                 placeholder="Ingrese su apellido">
                         </div>
                         <div class="container-birthdates container">
@@ -43,11 +43,11 @@
                         </div>
                         <div class="container-email containerL">
                             <input class="inputs input-register input-alone" type="email"
-                                placeholder="Ingrese su correo electronico">
+                                placeholder="Ingrese su correo electronico" name="email">
                         </div>
                         <div class="container-password containerL">
                             <input class="inputs input-register input-alone" type="password"
-                                placeholder="Ingrese su nueva contraseña">
+                                placeholder="Ingrese su nueva contraseña" name="new-password">
                         </div>
                         <div class="input-form-register">
                             <input type="submit" class="input-buttom-login" value="Registrarse">

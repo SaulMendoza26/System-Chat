@@ -1,19 +1,12 @@
 package com.sistema_chat.service;
 
+import java.util.Optional;
 
-import com.sistema_chat.dao.UserDAO;
+import com.sistema_chat.exception.ServiceException;
 import com.sistema_chat.model.User;
 
-
-
-
-public class UserService {
-private final UserDAO userDAO;
-public UserService(UserDAO userDAO){
-this.userDAO=userDAO;
-}
-public boolean login(String userName , String password){
-        User user = userDAO.validateUser(userName);
-    return user!=null && user.getPassword().equals(password);
-}
+public interface UserService {
+    boolean register(User user);
+    Optional<User> login(String username, String password);
+    void register(String name, String lastName,String yearBirthday,String monthBirtday,String dayBirthday,String genreString,String  email,String newPassword) throws ServiceException;
 }

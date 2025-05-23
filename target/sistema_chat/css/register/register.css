@@ -15,7 +15,9 @@
     --margin-large: 24px;
     --margin-xlarge: 32px;
 }
-
+.container-main{
+    background-color: var(--background-color);
+}
 .container-form-register {
     display: flex;
     flex-direction: column;
@@ -23,7 +25,7 @@
     justify-self: center;
     position: absolute;
     padding: 12px;
-
+    background-color: var(--border-color);
 }
 
 .title {

@@ -1,11 +1,13 @@
 package com.sistema_chat.controller;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import com.sistema_chat.dao.UserDAO;
+import com.sistema_chat.dao.UserDAOImpl;
 import com.sistema_chat.model.User;
-import com.sistema_chat.model.utils.DBConnection;
 import com.sistema_chat.service.UserService;
+import com.sistema_chat.service.UserServiceImpl;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -17,12 +19,11 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet(description="Logica de inicio de sesion para los usuarios",urlPatterns ={"/login"})
 public class LoginServlet extends HttpServlet {
     private UserService userService;
-    User user;
-    UserDAO userDAO;
+
     @Override
     public void init() throws ServletException {
-        userDAO = new UserDAO(DBConnection.getConnection());
-        userService = new UserService(userDAO);
+    UserDAO userDAO = new UserDAOImpl();
+        userService = new UserServiceImpl(userDAO);
 
         
     }
@@ -35,11 +36,11 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String getName =req.getParameter("userName");
         String getPassword = req.getParameter("userPassword");
-        user = userDAO.validateUser(getName);
-        boolean isReallyAUser = userService.login(getName, getPassword);
-        if(isReallyAUser){
+        Optional<User> user =  userService.login(getName, getPassword);
+
+        if(user!=null){
             HttpSession session = req.getSession();
-            session.setAttribute("user", user);
+            session.setAttribute("user", user.get());
             
             resp.sendRedirect("home");
 

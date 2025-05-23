@@ -21,6 +21,8 @@
         <div class="container-login container-flex-column">
             <h1 class="label-title labels">Login</h1>
             <div class="container-form-login container-flex-column">
+                <p  class="label-error">${error}</p>
+
                 <form class="form-login container-flex-column" action="login" method="post" >
                     <label class="label-name labels" for="user">Ingrese su usuario o email:</label>
                     <input class="input-name inputs" type="text" id="user" name="userName" placeholder="example@gmail.com">

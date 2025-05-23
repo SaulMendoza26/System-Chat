@@ -2,10 +2,14 @@ package com.sistema_chat.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+@Entity
+@Table(name = "USERS")
 public class User extends Person {
     private String email;
     private String password;
-    public User(String name, String lastName, String genre, LocalDate birthdate, String email,String password) {
+    public User(String name, String lastName, Genre genre, LocalDate birthdate, String email,String password) {
         super(name, lastName, genre, birthdate);
         this.email=email;
         this.password=password;

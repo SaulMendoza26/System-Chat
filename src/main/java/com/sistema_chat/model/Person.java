@@ -2,6 +2,9 @@ package com.sistema_chat.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -9,27 +12,23 @@ import jakarta.persistence.MappedSuperclass;
 @MappedSuperclass
 public abstract  class Person {
    @Id
-   @GeneratedValue(strategy=GenerationType.SEQUENCE)
+   @GeneratedValue(strategy=GenerationType.IDENTITY)
    private Long id;
+
    private String name;
    private String lastName;
-   private Genre getGenre;
+   @Enumerated(EnumType.STRING)
+   private Genre  genre;
    private LocalDate birthdate;
 
-   public Person(String name, String lastName,String genre, LocalDate birthdate){
+   public Person(String name, String lastName,Genre genre, LocalDate birthdate){
       this.name=name;
       this.lastName=lastName;
-      chooseGenre(genre);
+      this.genre = genre;
       this.birthdate=birthdate;
    }
    public Person(){  }
-   private void chooseGenre(String getGenre){
-      if(getGenre.equals("Hombre")){
-         this.getGenre=Genre.HOMBRE;
-      }else if(getGenre.equals("Mujer")){
-         this.getGenre=Genre.MUJER;
-      }
-   }
+
    
     
     public String getName() {
@@ -48,13 +47,7 @@ public abstract  class Person {
         this.lastName = lastName;
     }
 
-    public Genre getGetGenre() {
-        return getGenre;
-    }
-
-    public void setGetGenre(Genre getGenre) {
-        this.getGenre = getGenre;
-    }
+    
 
     public LocalDate getBirthdate() {
         return birthdate;
@@ -70,6 +63,12 @@ public abstract  class Person {
 
     public void setId(Long id) {
         this.id = id;
+    }
+    public Genre getGenre() {
+        return genre;
+    }
+    public void setGenre(Genre genre) {
+        this.genre = genre;
     }
 
 

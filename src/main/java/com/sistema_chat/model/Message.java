@@ -3,37 +3,51 @@ package com.sistema_chat.model;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
 @Entity
+@Table(name = "MESSAGES")
 public class Message {
-    private Integer id;
-    private User user;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+    @ManyToOne
+    @JoinColumn(name = "sender_id") // FK en la tabla messages
+    private User sender;
     private String content;
     private LocalDateTime timesTamp;
-    public Message(){
+
+    public Message() {
 
     }
-   public Message(Integer id,User user,String content,LocalDateTime timesTamp){
-    this.id=id;
-    this.user=user;
-    this.content=content;
-    this.timesTamp=timesTamp;
 
-   }
+    public Message(Long id, User user, String content, LocalDateTime timesTamp) {
+        this.id = id;
+        this.sender = user;
+        this.content = content;
+        this.timesTamp = timesTamp;
 
-    public Integer getId() {
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     public User getUser() {
-        return user;
+        return sender;
     }
 
     public void setUser(User user) {
-        this.user = user;
+        this.sender = user;
     }
 
     public String getContent() {

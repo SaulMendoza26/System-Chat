@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AppInit",
+            "request": "launch",
+            "mainClass": "com.sistema_chat.AppInit",
+            "projectName": "sistema_chat"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
