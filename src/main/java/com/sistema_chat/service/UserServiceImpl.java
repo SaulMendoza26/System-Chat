@@ -31,11 +31,6 @@ public class UserServiceImpl implements UserService {
     public Optional<User> login(String username, String password) {
         return userDAO.findByUsernameAndPassword(username, password);
     }
-
-    private void validateUser(User user) {
-
-    }
-
     @Override
     public void register(String name, String lastName, String yearBirthday, 
     String monthBirtday, String dayBirthday, String genreString, 

@@ -2,7 +2,6 @@ package com.sistema_chat.validation;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 
 import com.sistema_chat.exception.ServiceException;
 import com.sistema_chat.model.Genre;
@@ -47,12 +46,13 @@ public class UserValidator {
         Genre genreEnum;
         if(genre.equals("HOMBRE")){
             genreEnum = Genre.HOMBRE;
+            return genreEnum;
         }
         if(genre.equals("MUJER")){
             genreEnum = Genre.MUJER;
+            return genreEnum;
         }else{
-            throw new ServiceException("Elija un genero");
+            throw new ServiceException("Elija un genero: ");
         }
-        return genreEnum;
     }
 }

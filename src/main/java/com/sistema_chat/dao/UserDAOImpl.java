@@ -1,9 +1,5 @@
 package com.sistema_chat.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,8 +7,6 @@ import com.sistema_chat.JPAUtil;
 import com.sistema_chat.model.User;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
 
 public class UserDAOImpl implements UserDAO {
@@ -46,19 +40,16 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean update(User user) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
     @Override
     public boolean delete(Long id) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
     @Override
     public Optional<User> findById(Long id) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findById'");
     }
 
@@ -105,7 +96,6 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public List<User> findAll() {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 }

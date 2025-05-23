@@ -46,8 +46,8 @@ public class RegisterServlet extends HttpServlet {
             userService.register(name, lastName, yeartBirthday, monthBirtday, dayBirtday, genre, email, newPassword);
             
         } catch (ServiceException e) {
-            req.setAttribute("error", e.getMessage()+ genre);
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
+            req.setAttribute("error", e.getMessage());
+            req.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(req, resp);
         }
     }
 }

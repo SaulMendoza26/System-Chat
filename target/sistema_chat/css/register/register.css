@@ -25,7 +25,7 @@
     justify-self: center;
     position: absolute;
     padding: 12px;
-    background-color: var(--border-color);
+    background: papayawhip;
 }
 
 .title {

@@ -15,6 +15,7 @@
         <body>
             <div class="container-main">
                 <div class="container-form-register">
+                    <p  class="label-error">${error}</p>
                     <form action="register" method="post">
                         <h1 class="labels label-title title">Registrarse</h1>
                         <div class="container-names container">
