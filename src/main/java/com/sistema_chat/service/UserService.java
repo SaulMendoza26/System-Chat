@@ -6,7 +6,7 @@ import com.sistema_chat.exception.ServiceException;
 import com.sistema_chat.model.User;
 
 public interface UserService {
-    boolean register(User user);
-    Optional<User> login(String username, String password);
-    void register(String name, String lastName,String yearBirthday,String monthBirtday,String dayBirthday,String genreString,String  email,String newPassword) throws ServiceException;
+    boolean registerExist(User user);
+    Optional<User> login(String username, String password) throws ServiceException;
+    void register(String name, String lastName,String nickName,String yearBirthday,String monthBirtday,String dayBirthday,String genreString,String  email,String newPassword) throws ServiceException;
 }

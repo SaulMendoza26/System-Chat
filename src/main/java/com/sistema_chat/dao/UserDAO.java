@@ -6,12 +6,12 @@ import java.util.Optional;
 import com.sistema_chat.model.User;
 
 public interface UserDAO {
-   User create(User user);
+   void create(User user);
    boolean update(User user);
    boolean delete(Long id);
 
    Optional<User> findById(Long id);
-   Optional<User> findByUsername(String username);
-   Optional<User> findByUsernameAndPassword(String username, String password);
+   Optional<User> findByNick(String nick);
+   Optional<User> findByNickAndPassword(String nick, String password);
    List<User> findAll();
 }

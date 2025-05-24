@@ -9,8 +9,8 @@ import jakarta.persistence.Table;
 public class User extends Person {
     private String email;
     private String password;
-    public User(String name, String lastName, Genre genre, LocalDate birthdate, String email,String password) {
-        super(name, lastName, genre, birthdate);
+    public User(String name, String lastName,String nickName, Genre genre, LocalDate birthdate, String email,String password) {
+        super(name, lastName,nickName ,genre, birthdate);
         this.email=email;
         this.password=password;
     }

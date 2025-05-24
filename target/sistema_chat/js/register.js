@@ -45,6 +45,7 @@ function getGenre(){
     woman.value="MUJER";
     console.log({man:man, woman:woman})
 }
+
 dayBirthday();
 monthsBirthday();
 yearsBirthday();

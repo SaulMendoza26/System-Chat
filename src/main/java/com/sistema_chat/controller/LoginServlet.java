@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.sistema_chat.dao.UserDAO;
 import com.sistema_chat.dao.UserDAOImpl;
+import com.sistema_chat.exception.ServiceException;
 import com.sistema_chat.model.User;
 import com.sistema_chat.service.UserService;
 import com.sistema_chat.service.UserServiceImpl;
@@ -36,18 +37,17 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String getName =req.getParameter("userName");
         String getPassword = req.getParameter("userPassword");
-        Optional<User> user =  userService.login(getName, getPassword);
-
-        if(user!=null){
+        try {
+            Optional<User> user =  userService.login(getName, getPassword);
             HttpSession session = req.getSession();
             session.setAttribute("user", user.get());
             
             resp.sendRedirect("home");
-
-        }else{
-            req.setAttribute("errorLogin", "El nombre del usuario o de la contraseña es incorrecto");
+        } catch (ServiceException e) {
+            req.setAttribute("errorLogin", "<p class='label-error'>"+e.getMessage()+"</p>" );
             req.getRequestDispatcher("index.jsp").forward(req, resp);
         }
+ 
         
     }
     

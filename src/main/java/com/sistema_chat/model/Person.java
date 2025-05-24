@@ -16,13 +16,15 @@ public abstract  class Person {
 
    private String name;
    private String lastName;
+   private String nickName;
    @Enumerated(EnumType.STRING)
    private Genre  genre;
    private LocalDate birthdate;
 
-   public Person(String name, String lastName,Genre genre, LocalDate birthdate){
+   public Person(String name, String lastName,String nickName, Genre genre, LocalDate birthdate){
       this.name=name;
       this.lastName=lastName;
+      this.nickName=nickName;
       this.genre = genre;
       this.birthdate=birthdate;
    }
@@ -69,6 +71,15 @@ public abstract  class Person {
     public void setGenre(Genre genre) {
         this.genre = genre;
     }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
 
 
 }

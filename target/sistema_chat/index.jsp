@@ -21,16 +21,14 @@
         <div class="container-login container-flex-column">
             <h1 class="label-title labels">Login</h1>
             <div class="container-form-login container-flex-column">
+                <div> ${message}</div>
                 <form class="form-login container-flex-column" action="login" method="post" >
                     <label class="label-name labels" for="user">Ingrese su usuario o email:</label>
                     <input class="input-name inputs" type="text" id="user" name="userName" placeholder="example@gmail.com">
                     <label class="label-password labels" for="password">Ingrese su contraseña:</label>
                     <input class="input-password inputs" id="password" type="password" name="userPassword" placeholder="**************">
                     <input class="input-buttom-login inputs-buttom" type="submit" value="Ingresar">
-                    <div class="error-login bg-error"> 
-                         <p class="label-error">
-                            ${errorLogin}
-                         </p></div>
+                    <div> ${errorLogin}</div>
                 </form>
                 <a class="links" href="${pageContext.request.contextPath}/register">Registrarse</a>
             </div>

@@ -10,7 +10,7 @@ public class UserValidator {
 
     public static void validateLengthAndEmpty(String param, String name) throws ServiceException {
         if (param.isBlank() || param.isEmpty()) {
-            throw new ServiceException("El " + name + " se ecuentra vacio");
+            throw new ServiceException("El " + name + " se encuentra vacio");
         }
         if (param.length() > 20) {
             throw new ServiceException("El " + name + " excede el limite de 20 caracteres");
@@ -42,17 +42,40 @@ public class UserValidator {
 
         return dateBirth;
     }
-    public static Genre validatGenre(String genre) throws ServiceException{
+
+    public static Genre validateGenre(String genre) throws ServiceException {
         Genre genreEnum;
-        if(genre.equals("HOMBRE")){
-            genreEnum = Genre.HOMBRE;
-            return genreEnum;
+        try {
+            if (genre.equals("HOMBRE")) {
+                genreEnum = Genre.HOMBRE;
+                return genreEnum;
+            }
+            if (genre.equals("MUJER")) {
+                genreEnum = Genre.MUJER;
+                return genreEnum;
+            }
+        } catch (NullPointerException e) {
+            throw new ServiceException("Elija un genero ");
         }
-        if(genre.equals("MUJER")){
-            genreEnum = Genre.MUJER;
-            return genreEnum;
-        }else{
-            throw new ServiceException("Elija un genero: ");
+        throw new ServiceException("Genero no valido es hombre o mujer decida");
+    }
+
+    public static void validateEmail(String email) throws ServiceException{
+            if(email.isBlank() || email.isEmpty()){
+                throw new ServiceException("El campo email se encuentra vacio");
+            }
+            if(email.length()>320){
+                throw new ServiceException("La longitud del email excede lo permitido");
+            }
+            
+    }
+    public static String validatePassword(String plainPassword) throws ServiceException{
+        if(plainPassword.isBlank()|| plainPassword.isEmpty()){
+            throw new ServiceException("El campo de la contraseña se encuentra vacio");
         }
+        if(plainPassword.length()<7 && plainPassword.length()>18){
+            throw new ServiceException("El campo de contrase no debe exceder menor a 7 caracteres ni mayor a 18 caracteres");
+        }
+        return PassworValidator.hashPassword(plainPassword);
     }
 }

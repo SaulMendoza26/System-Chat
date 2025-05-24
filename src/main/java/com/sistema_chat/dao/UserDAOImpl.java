@@ -11,20 +11,20 @@ import jakarta.persistence.TypedQuery;
 
 public class UserDAOImpl implements UserDAO {
 
-    private EntityManager em;
+    private final  EntityManager em;
 
     public UserDAOImpl() {
         em = JPAUtil.getEntityManagerFactory().createEntityManager();
     }
 
     @Override
-    public User create(User user) {
+    public void create(User user) {
 
         if (user == null) {
             throw new IllegalArgumentException("User object cannot be null");
         }
 
-        try {
+        try (em) {
             em.getTransaction().begin();
             em.persist(user);
             em.getTransaction().commit();
@@ -32,10 +32,8 @@ public class UserDAOImpl implements UserDAO {
             if (em.getTransaction().isActive()) {
                 em.getTransaction().rollback();
             }
-        } finally {
-            em.close();
         }
-        return user;
+        
     }
 
     @Override
@@ -54,33 +52,31 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public Optional<User> findByUsername(String username) {
+    public Optional<User> findByNick(String nickname) {
 
-        Optional<User> user = null;
-        try {
-            TypedQuery<User> query = em.createQuery("From user u where u.username= :username AND u.password= :password",
+        Optional<User> user = Optional.ofNullable(null);
+        try (em) {
+            TypedQuery<User> query = em.createQuery("From user u where u.nickname= :nickname",
                     User.class);
-            query.setParameter("username", username);
+            query.setParameter("nickname", nickname);
             List<User> resultado = query.getResultList();
             if (!resultado.isEmpty())
                 user = Optional.ofNullable(resultado.get(0));
 
         } catch (Exception e) {
 
-        } finally {
-            em.close();
         }
         return user;
     }
 
     @Override
-    public Optional<User> findByUsernameAndPassword(String username, String password) {
+    public Optional<User> findByNickAndPassword(String nickName, String password) {
 
         Optional<User> user = null;
-        try {
-            TypedQuery<User> query = em.createQuery("From user u where u.username= :username AND u.password= :password",
+        try (em){
+            TypedQuery<User> query = em.createQuery("From user u where u.nickName= :nickName AND u.password= :password",
                     User.class);
-            query.setParameter("username", username);
+            query.setParameter("nickName", nickName);
             query.setParameter("password", password);
             List<User> resultado = query.getResultList();
             if (!resultado.isEmpty())
@@ -88,8 +84,6 @@ public class UserDAOImpl implements UserDAO {
 
         } catch (Exception e) {
 
-        } finally {
-            em.close();
         }
         return user;
     }

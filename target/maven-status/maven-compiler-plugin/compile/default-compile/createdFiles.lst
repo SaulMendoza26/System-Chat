@@ -9,6 +9,7 @@ com/sistema_chat/AppInit.class
 com/sistema_chat/dao/UserDAOImpl.class
 com/sistema_chat/validation/UserValidator.class
 com/sistema_chat/model/Person.class
+com/sistema_chat/validation/PassworValidator.class
 com/sistema_chat/controller/RegisterServlet.class
 com/sistema_chat/JPAUtil.class
 com/sistema_chat/model/User.class

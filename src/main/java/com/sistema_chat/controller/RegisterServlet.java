@@ -36,6 +36,7 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
         String lastName = req.getParameter("lastName");
+        String nickName = req.getParameter("nickName");
         String yeartBirthday = req.getParameter("yearBirthday");
         String monthBirtday = req.getParameter("monthBirtday");
         String dayBirtday = req.getParameter("dayBirtday");
@@ -43,10 +44,11 @@ public class RegisterServlet extends HttpServlet {
         String email = req.getParameter("email");
         String newPassword = req.getParameter("new-password");
         try {
-            userService.register(name, lastName, yeartBirthday, monthBirtday, dayBirtday, genre, email, newPassword);
-            
+            userService.register(name, lastName, nickName,yeartBirthday, monthBirtday, dayBirtday, genre, email, newPassword);
+            req.setAttribute("message","<p class='label-error'>"+"Su usuario se creado con exito!!"+"</p>" );
+            req.getRequestDispatcher("index.jsp").forward(req, resp);
         } catch (ServiceException e) {
-            req.setAttribute("error", e.getMessage());
+            req.setAttribute("error","<p class='label-error'>"+e.getMessage()+"</p>" );
             req.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(req, resp);
         }
     }

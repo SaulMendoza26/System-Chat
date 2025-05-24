@@ -15,7 +15,7 @@
         <body>
             <div class="container-main">
                 <div class="container-form-register">
-                    <p  class="label-error">${error}</p>
+                    <div>${error}</div>
                     <form action="register" method="post">
                         <h1 class="labels label-title title">Registrarse</h1>
                         <div class="container-names container">
@@ -23,6 +23,10 @@
                                 placeholder="Ingrese su nombres">
                             <input class="inputs input-register" type="text" name="lastName"
                                 placeholder="Ingrese su apellido">
+                        </div>
+                        <div class="containerL">
+                            <input class="inputs input-alone" type="text" name="nickName"
+                            placeholder="Ingrese su nuevo nombre de usuario">
                         </div>
                         <div class="container-birthdates container">
                             <select class="select-yearBirthday selects box" name="yearBirthday"
